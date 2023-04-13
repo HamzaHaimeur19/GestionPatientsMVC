@@ -2,13 +2,17 @@ package com.example.GestionPatientMVC.web;
 
 import com.example.GestionPatientMVC.entities.Patient;
 import com.example.GestionPatientMVC.repositories.PatientRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +44,44 @@ public class PatientController {
     @GetMapping("/")
     public String home() {
         return "redirect:/index";
+
+    }
+
+    @GetMapping("/patients")
+    @ResponseBody
+    public List<Patient> listePatients() {
+        return patientrepository.findAll();
+
+    }
+
+    @GetMapping("/formPatients")
+    public String formPatients(Model model) {
+        model.addAttribute("patient", new Patient());
+        return "formPatients";
+    }
+
+    @PostMapping("/save")
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult,
+                       @RequestParam(defaultValue = "0") int page,
+                       @RequestParam(defaultValue = "") String keyword) {
+        if (bindingResult.hasErrors()) {
+            return "formPatients";
+        } else {
+            patientrepository.save(patient);
+            return "redirect:/index?page=" + page + "&keyword=" + keyword;
+        }
+    }
+
+    @GetMapping("/editPatient")
+    public String editPatient(Model model, Long id, String keyword, int page) {
+        Patient patient = patientrepository.findById(id).orElse(null); // chercher patient par id si il est present sinon retourner un null
+        if (patient == null) {
+            throw new RuntimeException("patient introuvable!");
+        }
+        model.addAttribute("patient", patient);
+        model.addAttribute("keyword", keyword); // stocker le keyword courant
+        model.addAttribute("page", page); // stocker la page courante
+        return "editPatient";
     }
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css"/>
+    <script src="webjars/bootstrap/5.2.3/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">[UserName]</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Patients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/formPatients}">Nouveau patient</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Logout</a>
+                </li>
+            </ul>
+            <form class="d-flex" method="get" th:action="@{index}">
+                <input class="form-control me-2" type="text" placeholder="Chercher Patient par nom"
+                       name="keyword" th:value="${keyword}">
+                <button class="btn btn-primary" type="submit">Chercher</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<section layout:fragment="content1">
+</section>
+</body>
+</html>
