@@ -2,6 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 >
 <head>
     <title>Title</title>
@@ -11,23 +12,23 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)">[UserName]</a>
+        <a class="navbar-brand" sec:authentication="name"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Patients</a>
+                    <a class="nav-link" th:href="@{/user/index}">Patients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/formPatients}">Nouveau patient</a>
+                    <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/formPatients}">Nouveau patient</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Logout</a>
+                    <a class="nav-link" th:href="@{/logout}">Logout</a>
                 </li>
             </ul>
-            <form class="d-flex" method="get" th:action="@{index}">
+            <form class="d-flex" method="get" th:action="@{/user/index}">
                 <input class="form-control me-2" type="text" placeholder="Chercher Patient par nom"
                        name="keyword" th:value="${keyword}">
                 <button class="btn btn-primary" type="submit">Chercher</button>
@@ -35,6 +36,7 @@
         </div>
     </div>
 </nav>
+
 <section layout:fragment="content1">
 </section>
 </body>
