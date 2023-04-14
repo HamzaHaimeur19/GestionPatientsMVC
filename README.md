@@ -40,4 +40,33 @@
 <img src="images/main.png"/>
 
 <p>propriétes app</p>
-<img src="images/appProperties.png">
+<img src="images/appProperties.pngx">
+
+
+<p>Login</p>
+<img src="images/login.png">
+
+<p>Utilisateur accueil</p>
+<img src="images/utilisateur.png" />
+
+<p>Chercher patient</p>
+<img src="images/Utilisateur2.png" />
+
+<p>Se deconnecter</p>
+<img src="images/Logout1.png" />
+<img src="images/Logout2.png">
+
+<p>Administrateur accueil</p>
+<img src="images/Admin1.png"/>
+
+<p>Supprimer</p>
+<img src="images/AdminSupprimer1.png">
+<img src="images/AdminSupp2.png">
+
+<p>Modifier</p>
+<img src="images/Modifier1.png">
+<img src="images/Modifier2.png">
+
+<p>Ajouter</p>
+<img src="images/Ajouter1.png">
+<img src="images/Ajouter2.png">
