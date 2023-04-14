@@ -33,21 +33,4 @@ public class GestionPatientMvcApplication implements CommandLineRunner {
 
 
     }
-
-    //@Bean
-//    CommandLineRunner saveUsers(SecurityService securityService) {
-//        return args -> {
-//            securityService.saveNewUser("hamza", "1234", "1234");
-//            securityService.saveNewUser("rayane", "1234", "1234");
-//            securityService.saveNewUser("hanaa", "1234", "1234");
-//
-//            securityService.saveNewRole("ADMIN", "ce role est admin");
-//            securityService.saveNewRole("USER", "ce role est user");
-//
-//            securityService.AddRoleToUser("hamza", "USER");
-//            securityService.AddRoleToUser("rayane", "ADMIN");
-//            securityService.AddRoleToUser("hanaa", "ADMIN");
-//
-//        };
-//    }
 }
