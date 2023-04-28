@@ -37,7 +37,6 @@ public class PatientController {
     }
 
     @GetMapping(path = "/admin/delete")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String delete(Long id, String keyword, int page) {
         patientrepository.deleteById(id);
         return "redirect:/user/index?page=" + page + "&keyword=" + keyword;
@@ -64,7 +63,6 @@ public class PatientController {
     }
 
     @PostMapping("/admin/save")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String save(Model model, @Valid Patient patient, BindingResult bindingResult,
                        @RequestParam(defaultValue = "0") int page,
                        @RequestParam(defaultValue = "") String keyword) {
@@ -77,7 +75,6 @@ public class PatientController {
     }
 
     @GetMapping("/admin/editPatient")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editPatient(Model model, Long id, String keyword, int page) {
         Patient patient = patientrepository.findById(id).orElse(null); // chercher patient par id si il est present sinon retourner un null
         if (patient == null) {

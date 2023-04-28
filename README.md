@@ -40,7 +40,7 @@
 <img src="images/main.png"/>
 
 <p>propriétes app</p>
-<img src="images/appProperties.pngx">
+<img src="images/appProperties.png">
 
 
 <p>Login</p>

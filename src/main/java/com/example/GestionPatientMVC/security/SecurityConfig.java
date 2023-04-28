@@ -59,10 +59,13 @@ public class SecurityConfig {
 
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.formLogin();
-        http.exceptionHandling().accessDeniedPage("/noAuthorized");
-        return http.build();
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.formLogin();
+        httpSecurity.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER") ;
+        httpSecurity.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN") ;
+        httpSecurity.authorizeHttpRequests().anyRequest().authenticated();
+        httpSecurity.exceptionHandling().accessDeniedPage("/notAuthorized") ;
+        return httpSecurity.build() ;
     }
 
     @Bean
