@@ -56,7 +56,6 @@ public class PatientController {
     }
 
     @GetMapping("/admin/formPatients")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String formPatients(Model model) {
         model.addAttribute("patient", new Patient());
         return "formPatients";

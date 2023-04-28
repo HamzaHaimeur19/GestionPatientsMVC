@@ -8,12 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SecurityController {
 
     @GetMapping("/noAuthorized")
-    public String noAuthoried() {
+    public String noAuthorized() {
         return "noAuthorized";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
     }
 }
