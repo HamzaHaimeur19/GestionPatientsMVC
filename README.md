@@ -50,14 +50,14 @@
 <img src="images/utilisateur.png" />
 
 <p>Chercher patient</p>
-<img src="images/Utilisateur2.png" />
+<img src="images/Chercher.png" />
 
 <p>Se deconnecter</p>
 <img src="images/Logout1.png" />
 <img src="images/Logout2.png">
 
 <p>Administrateur accueil</p>
-<img src="images/Admin1.png"/>
+<img src="images/Utilisateur2.png"/>
 
 <p>Supprimer</p>
 <img src="images/AdminSupprimer1.png">
@@ -70,3 +70,6 @@
 <p>Ajouter</p>
 <img src="images/Ajouter1.png">
 <img src="images/Ajouter2.png">
+
+<p>Non autorisé si essayer d'acceder sans role</p>
+<img src="images/NoAuthorized.png">
