@@ -47,7 +47,7 @@
 <img src="images/login.png">
 
 <p>Utilisateur accueil</p>
-<img src="images/utilisateur.png" />
+<img src="images/Utilisateur.png" />
 
 <p>Chercher patient</p>
 <img src="images/Chercher.png" />
